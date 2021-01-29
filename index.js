@@ -56,12 +56,13 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  zooAnimals.forEach(function(){
-  });
-
-  function animalNames(name, scientific){
+  function animalNames(animals){
     /*Your Code Here*/
-    console.log(name, scientific);
+    let displayNames = [];
+    animals.forEach((animal) => {
+      displayNames.push(`name: ${animal.animal_name}, scientific: ${animal.scientific_name}`);
+    });
+    return displayNames;
   }
   
 
@@ -71,10 +72,12 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(names){
+  function lowerCaseNames(animals){
     /*Your Code Here*/
-    // let newarray = arr.map(callback(names[index])){
-    // }
+    let lowerNames = animals.map((animal) => {
+      return animal.animal_name.toLowerCase();
+    })
+    return lowerNames;
   }
   
   
@@ -83,8 +86,12 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(animals){
+
+    const filteredArray = animals.filter((animal) => {
+      return animal.population < 5;
+    });
+    return filteredArray;
   }
   
 
@@ -94,8 +101,16 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(animals){
+    
+    let animalPop = 0;
+    for(let i = 0; i < data.length; i++){
+      animalPop += data.population;
+    }
+
+    const reduceAnimalPop = data.reduce((total, population) => {
+      return total + population;
+    }, 0);
   }
   
   
@@ -109,6 +124,7 @@ const zooAnimals = [
 
   function consume(/*Your Code Here */){
     /*Your Code Here */
+
   }
  
   
