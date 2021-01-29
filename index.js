@@ -17,7 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+// The external variable is global and using closure the function can pull it in and use it.
 
 
 
@@ -28,10 +28,13 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
+function summation(num) {
   /*Your Code Here*/
-
-  }
+  //for(let i = 0; i < num; i++){
+   // num = num + 1;  
+  //}
+    //return num;
+}
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -56,8 +59,11 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
+  function animalNames(array, name, scientific){
     /*Your Code Here*/
+    array.newforEach(zooAnimals, function(name, scientific) {
+       return(name, scientific);
+    });
   }
   
 
@@ -67,8 +73,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
+  function lowerCaseNames(names){
     /*Your Code Here*/
+    // let newarray = arr.map(callback(names[index])){
+    // }
   }
   
   
@@ -143,16 +151,21 @@ function greeting(/*Your Code Here */){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
+function CuboidMaker(attributes){
   /*Your Code Here */
+  this.length = attributes.length;
+  this.width = attributes.width;
+  this.height = attributes.height;
 }
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-
-
+CuboidMaker.prototype.volume = function(){
+  let ans = this.length * this.width * this.height;
+  return ans;
+}
 
 
 
@@ -160,7 +173,10 @@ function CuboidMaker(/*Your Code Here */){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
-
+CuboidMaker.prototype.surfaceArea = function(){
+  let surface = 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  return surface;
+}
 
 
 
@@ -168,7 +184,11 @@ function CuboidMaker(/*Your Code Here */){
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
-
+const cuboid = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5,
+});
 
 
 
@@ -182,7 +202,20 @@ function CuboidMaker(/*Your Code Here */){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
+constructor(attributes){
+  this.length = attributes.length;
+  this.height = attributes.height;
+  this.width = attributes.width;
+}
+volume(){
+  let ans = this.length * this.width * this.height;
+  return ans;
+}
 
+surfaceArea(){
+  let surface2 = 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  return surface2;
+}
 }
 
 
