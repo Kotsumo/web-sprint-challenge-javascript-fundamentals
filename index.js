@@ -102,10 +102,9 @@ const zooAnimals = [
   */
 
   function USApop(animals){
-                                                                 
-    let animalPop = 0;
-    animalPop = animals.reduce((accumulator, currValue) => {
-        return accumulator.population + currValue.population;
+   let animalPop = animals.reduce((accumulator, currValue) => {
+        let sum = accumulator + currValue.population;
+        return sum;
     }, 0)
     return animalPop;
   }
